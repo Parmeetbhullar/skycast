@@ -3,6 +3,8 @@ import AuthProvider from '../context/AuthContext';
 import NavBar from '../components/NavBar';
 import { Toaster } from 'react-hot-toast';
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 export const metadata = {
   title: 'SkyCast',
   description: 'Next-gen weather platform',

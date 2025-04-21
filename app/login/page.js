@@ -7,23 +7,28 @@ import { auth, provider } from '../../firebase/firebase';
 import { useEffect, useState } from 'react';
 
 export default function LoginPage() {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   useEffect(() => {
-    if (user) {
+    if (!authLoading && user) {
       router.push('/dashboard');
     }
-  }, [user]);
+  }, [user, authLoading, router]);
 
   const handleLogin = async () => {
     setLoading(true);
+    setErrorMsg('');
+
     try {
       await signInWithPopup(auth, provider);
     } catch (err) {
       console.error('Login error:', err);
       setLoading(false);
+      setErrorMsg('Connection failed');
+      setTimeout(() => setErrorMsg(''), 1000);
     }
   };
 
@@ -37,9 +42,17 @@ export default function LoginPage() {
           className="login-btn"
           disabled={loading}
         >
-          {loading ? 'Connecting...' : 'Continue with Google'}
+          {loading
+            ? 'Connecting...'
+            : errorMsg
+            ? errorMsg
+            : 'Continue with Google'}
         </button>
       </div>
+
+      <button className="back-home-btn" onClick={() => router.push('/')}>
+        ← Back to Home
+      </button>
     </div>
   );
 }
