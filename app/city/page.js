@@ -2,9 +2,10 @@
 
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { fetch5DayForecast } from '../../../utils/fetchWeather';
-import ForecastChart from '../../../components/ForecastChart';
-import WeatherCard from '../../../components/WeatherCard';
+import { fetch5DayForecast } from 'utils/fetchWeather';
+import ForecastChart from 'components/ForecastChart';
+import WeatherCard from 'components/WeatherCard';
+
 
 export default function CityForecastPage() {
   const { city } = useParams();
