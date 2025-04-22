@@ -5,9 +5,7 @@ import CitySearchBar from '../components/CitySearchBar';
 export default function HomePage() {
   return (
     <div style={styles.container}>
-      <h1 className="clean-title">
-        Welcome to <span className="skycast-glow">SkyCast</span>
-      </h1>
+      <h1 className="neon-title">Welcome to <span className="skycast-glow">SkyCast</span></h1>
       <p className="glow-subtext">Search for any city to see current weather conditions.</p>
 
       <CitySearchBar />
@@ -19,7 +17,7 @@ const styles = {
   container: {
     maxWidth: '600px',
     margin: '0 auto',
-    padding: '80px 16px 40px',
+    padding: '2px 16px 40px',
     textAlign: 'center',
     zIndex: 1,
   },
