@@ -4,7 +4,6 @@ import { db } from '../firebase/firebase';
 export async function saveCity(userId, cityName) {
   const citiesRef = collection(db, 'users', userId, 'cities');
   
-  // Prevent duplicate saves
   const q = query(citiesRef, where('name', '==', cityName));
   const existing = await getDocs(q);
   if (!existing.empty) {

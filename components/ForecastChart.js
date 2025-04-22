@@ -9,12 +9,7 @@ import {
   ResponsiveContainer
 } from 'recharts';
 
-/**
- * ForecastChart component to display 5-day temperature data.
- * @param {Object} forecastData - Data from OpenWeatherMap forecast API.
- */
 export default function ForecastChart({ forecastData }) {
-  // ✅ Defensive check for valid forecast data with more than 1 data point
   if (!forecastData?.list || forecastData.list.length < 2) {
     return (
       <p style={{ textAlign: 'center', color: '#aaa' }}>
@@ -23,7 +18,6 @@ export default function ForecastChart({ forecastData }) {
     );
   }
 
-  // ✅ Convert first 8 time slots (~24 hours) to chart-friendly format
   const chartData = forecastData.list.slice(0, 8).map((item) => ({
     time: new Date(item.dt * 1000).toLocaleTimeString('en-US', {
       hour: 'numeric',
