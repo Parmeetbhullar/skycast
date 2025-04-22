@@ -6,21 +6,28 @@ import { fetch5DayForecast } from 'utils/fetchWeather';
 import ForecastChart from 'components/ForecastChart';
 import WeatherCard from 'components/WeatherCard';
 
-
 export default function CityForecastPage() {
   const { city } = useParams();
   const [forecast, setForecast] = useState(null);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (!city) return;
+
     async function getForecast() {
+      setLoading(true);
       try {
         const data = await fetch5DayForecast(city);
         setForecast(data);
       } catch (err) {
+        console.error(err);
         setError('Failed to load forecast.');
+      } finally {
+        setLoading(false);
       }
     }
+
     getForecast();
   }, [city]);
 
@@ -28,8 +35,9 @@ export default function CityForecastPage() {
     <div style={styles.container}>
       <h1 style={styles.title}>5-Day Forecast for {city}</h1>
       {error && <p style={{ color: 'red' }}>{error}</p>}
+      {loading && <p>Loading forecast...</p>}
 
-      {forecast && (
+      {forecast?.city && (
         <>
           <WeatherCard
             city={forecast.city.name}

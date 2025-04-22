@@ -414,3 +414,35 @@ body::-webkit-scrollbar {
   box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
   transform: scale(1.05);
 }
+.clean-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #e0e0e0;
+  line-height: 1.2;
+}
+
+.skycast-glow {
+  color: #00ffff;
+  text-shadow:
+    0 0 4px #00ffff88,
+    0 0 10px #00ffff44;
+  background: linear-gradient(90deg, #00ffff, #ccffff);
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shimmerSubtle 4s infinite linear;
+}
+
+@keyframes shimmerSubtle {
+  0% { background-position: -100%; }
+  100% { background-position: 200%; }
+}
+
+.glow-subtext {
+  font-size: 1.1rem;
+  margin-top: 8px;
+  color: #bbb;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.05);
+  animation: fadeInPage 1.2s ease;
+}

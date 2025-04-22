@@ -23,7 +23,7 @@ export default function DashboardPage() {
     };
 
     fetchCities();
-  }, [user]);
+  }, [user, router]);
 
   const handleDelete = async (cityId) => {
     await deleteCity(user.uid, cityId);
