@@ -16,6 +16,8 @@ export default function SavedCityItem({ city, onDelete }) {
 const styles = {
   card: {
     width: '100%',
+    maxWidth: '300px',
+    margin: '0 auto',
     padding: '20px',
     borderRadius: '16px',
     textAlign: 'center',
@@ -24,7 +26,7 @@ const styles = {
     backdropFilter: 'blur(12px)',
     boxShadow: '0 4px 20px rgba(0,255,255,0.06)',
     transition: 'transform 0.3s ease',
-  },
+  },  
   name: {
     textDecoration: 'none',
     color: '#00ffff',

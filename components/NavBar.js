@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { useAuth } from '../context/AuthContext';
 import { usePathname } from 'next/navigation';
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
 
 export default function NavBar() {
   const { user, logout } = useAuth();

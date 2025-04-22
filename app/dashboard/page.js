@@ -33,14 +33,17 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-white">
-      <div className="max-w-4xl mx-auto text-center">
-        <h1 className="text-3xl font-bold text-gray-800 mb-8">My Saved Cities</h1>
+    <div className="min-h-screen w-full px-4 py-10 sm:px-6 lg:px-8 fade-section">
+      <div className="max-w-5xl mx-auto text-center">
+        <h1 className="text-3xl md:text-4xl font-bold clean-title skycast-glow mb-4">
+          My Saved Cities
+        </h1>
+        <p className="glow-subtext mb-10">
+          Manage your favorite weather spots below.
+        </p>
 
         {loading ? (
-          <p className="text-gray-500">Loading your saved cities...</p>
-        ) : cities.length === 0 ? (
-          <p className="text-gray-500">No cities saved yet. Go explore and save some!</p>
+          <p className="text-gray-400 text-sm">Loading your saved cities...</p>
         ) : (
           <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
             {cities.map((city) => (

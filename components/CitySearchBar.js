@@ -61,9 +61,13 @@ export default function CitySearchBar() {
   };
 
   const handleSave = async () => {
-    if (!user || !weatherData) return;
+    if (!user?.uid || !weatherData?.city) {
+      toast.error('Missing user or city');
+      return;
+    }
+
     try {
-      await saveCity(user.uid, weatherData.name);
+      await saveCity(user.uid, weatherData.city);
       toast.success('City saved!');
     } catch (err) {
       toast.error(err.message || 'Could not save city');
@@ -112,12 +116,8 @@ export default function CitySearchBar() {
 
       {weatherData && (
         <div style={{ marginTop: '30px', textAlign: 'center' }}>
-          <WeatherCard
-            city={weatherData.name}
-            temperature={`${weatherData.main.temp}°C`}
-            description={weatherData.weather[0].description}
-            icon={weatherData.weather[0].icon}
-          />
+          <WeatherCard {...weatherData} />
+
           {user && (
             <button
               onClick={handleSave}
