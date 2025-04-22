@@ -17,7 +17,7 @@ const styles = {
   card: {
     width: '100%',
     maxWidth: '300px',
-    margin: '0 auto',
+    margin: '0',
     padding: '20px',
     borderRadius: '16px',
     textAlign: 'center',
