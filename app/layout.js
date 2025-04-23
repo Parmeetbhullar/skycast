@@ -11,7 +11,7 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata = {
   title: 'SkyCast',
-  description: 'Next-gen weather platform',
+  description: 'weather platform',
 };
 
 export default function RootLayout({ children }) {
